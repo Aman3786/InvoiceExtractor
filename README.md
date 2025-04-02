@@ -32,7 +32,7 @@ python -m venv venv
 source venv/bin/activate  # On macOS/Linux
 venv\Scripts\activate     # On Windows
 ```
-:three: Install Dependencies
+:three: Install Dependencies (Ensure to be inside directory where requirements.txt file is present)
 ```bash
 pip install -r requirements.txt
 ```
@@ -42,16 +42,16 @@ pip install -r requirements.txt
 SECRET_KEY='Your Secret Key'
 GROQ_API_KEY="Your GROQ API key"
 ```
-:five: Apply Database Migrations
+:five: Apply Database Migrations (Ensure to be inside directory where manage.py file is present)
 ```bash
 python manage.py makemigrations
 python manage.py migrate
 ```
-:six: Create Superuser
+:six: Create Superuser (Ensure to be inside directory where manage.py file is present)
 ```bash
 python manage.py createsuperuser
 ```
-:seven: Run the Development Server
+:seven: Run the Development Server (Ensure to be inside directory where manage.py file is present)
 ```bash
 python manage.py runserver
 ```
