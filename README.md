@@ -2,7 +2,7 @@
 
 ### :pushpin: Project Overview
 
-#### This is a Django-based project that allows users to upload PDF invoices and extract key details such as:
+#### This is a Django-based InvoiceExtractor that allows users to upload PDF invoices and extract key details such as:
 - Invoice Date
 - Invoice Number
 - Amount
