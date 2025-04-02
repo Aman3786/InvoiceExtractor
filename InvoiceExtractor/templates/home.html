@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  <title>home</title>
+{% endblock title %}
+
+{% block content %}
+
+<h2>Welcome, {{ request.user.username }}</h2>
+<a href="{% url 'signout' %}">Logout</a>
+<br><br>
+<form method="post" action={% url 'invoice' %} enctype="multipart/form-data">
+  {% csrf_token %}
+  <input type="file" name="invoice_file" placeholder="Upload your Invoice here." accept="application/pdf" required><br>
+  <button type="submit">Extract Details</button>
+</form>
+
+{% if invoice_result %}
+  <p>Invoice Date: {{ invoice_result.invoice_date }}</p>
+  <p>Invoice number: {{ invoice_result.invoice_number }}</p>
+  <p>Invoice Amount: {{ invoice_result.amount }}</p>
+  <p>Invoice Due Date: {{ invoice_result.due_date }}</p>
+{% endif %}
+
+{% endblock content %}
