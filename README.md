@@ -1,56 +1,93 @@
-:page_facing_up: Invoice Extraction API
-:pushpin: Project Overview
-This is a Django-based project that allows users to upload PDF invoices and extract key details such as:
-Invoice Vendor
-Invoice Number
-Amount
-Due Date
-The project uses LangChain to extract text from PDF files and LLMs (GPT-4 or OpenAI models) to analyze and extract structured invoice data.
+## :page_facing_up: Invoice-Extractor
+
+### :pushpin: Project Overview
+
+#### This is a Django-based project that allows users to upload PDF invoices and extract key details such as:
+- Invoice Date
+- Invoice Number
+- Amount
+- Due Date
+
+#### The project uses LangChain to extract text from PDF files and Langchain+Groq LLama-3.3-70B Model to analyze and extract structured invoice data.
 ---
-:rocket: Features
-User Authentication (Signup, Signin, Logout)
-PDF Upload Functionality (Only PDFs allowed)
-Invoice Processing using LangChain & LLM
-Database Storage for Uploaded Invoices
-Frontend UI for Uploading & Viewing Invoices
-Uses Django Messages Framework for Alerts
+
+### :rocket: Features
+- User Authentication (Signup, Signin, Logout)
+- PDF Upload Functionality (Only PDFs allowed)
+- Invoice Processing using LangChain & Groq LLama-3.3-70B Model
+- Database Storage for Uploaded Invoices 
+- Frontend UI for Uploading & Viewing Invoices using Bootstrap5
+- Uses Django Messages Framework for Alerts
 ---
-:hammer_and_wrench: Installation & Setup
+
+### :hammer_and_wrench: Installation & Setup
 :one: Clone the Repository
-git clone https://github.com/yourusername/invoice-extraction.git
-cd invoice-extraction
-:two: Create a Virtual Environment & Activate It
+```bash
+git clone https://github.com/Aman3786/InvoiceExtractor.git
+cd InvoiceExtractor
+```
+:two: Create a Virtual Environment & Activate It (Optional)
+```bash
 python -m venv venv
 source venv/bin/activate  # On macOS/Linux
 venv\Scripts\activate     # On Windows
+```
 :three: Install Dependencies
+```bash
 pip install -r requirements.txt
+```
 :four: Set Up Environment Variables
-Add Groq API Key in settings.py file:
-GROQ_API_KEY=your_groq_api_key_here
+#### Add Djnago Secret Key and Groq API Key in settings.py file:
+```bash
+SECRET_KEY='Your Secret Key'
+GROQ_API_KEY="Your GROQ API key"
+```
 :five: Apply Database Migrations
+```bash
 python manage.py makemigrations
 python manage.py migrate
+```
 :six: Create Superuser
+```bash
 python manage.py createsuperuser
+```
 :seven: Run the Development Server
+```bash
 python manage.py runserver
+```
 :eight: Access the App in Your Browser
+```bash
 http://127.0.0.1:8000/
+```
 ---
-:open_file_folder: API Endpoints
----
-:scroll: How It Works
-:one: User logs in and uploads a PDF invoice. :two: File is saved in the database (media/invoices/). :three: LangChain extracts text from the PDF. :four: LLAMA 3.3 model extracts invoice details. :five: Extracted data is displayed to the user.
----
-:hammer_and_wrench: Technologies Used
-Django (Python Web Framework)
-LangChain (PDF Processing)
-GROQ LLM API (LLM for Invoice Data Extraction)
-SQLite (Database)
-Bootstrap 5 (Frontend Styling)
-Django Messages Framework (Alerts & Notifications)
+
+### :scroll: How It Works
+
+:one: User signup/Signin and uploads a PDF invoice.
+
+:two: File is saved inside the database.
+
+:three: LangChain's Document Loader(Pypdfloader) extracts text from the PDF.
+
+:four: Groq's LLAMA-3.3-70B model extracts invoice details.
+
+:five: Extracted data is saved inside the database and displayed to the user.
 
 ---
-:envelope_with_arrow: Contact
-For questions or suggestions, reach out at: :e-mail: Email: amaanshk3786@gmail.com GitHub: Aman3786
+### :hammer_and_wrench: Technologies Used
+- Python (Core programming language)
+- Django (Python Web Framework)
+- LangChain (PDF Processing & Groq LLM wrapper)
+- GROQ (LLama-3.3-70B model for Invoice Data Extraction)-
+- SQLite (Database)-
+- Bootstrap 5 (Frontend)
+- Django Messages Framework (Alerts & Notifications)
+
+---
+### :envelope_with_arrow: Contact
+
+For questions or suggestions, reach out at:
+
+:mailbox_with_mail: Email: amaanshk3786@gmail.com
+
+Github: [Aman3786](https://github.com/Aman3786)
